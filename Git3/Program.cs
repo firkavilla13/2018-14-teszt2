@@ -10,20 +10,42 @@ namespace Git3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Kérem adjon meg 10 számot");
-            int[]t= new int[10];
-            int legnagyobb = 0;
+            Console.WriteLine("Kérem adjon meg hány darab  számot szeretne");
+            //int db =Convert.ToInt32(Console.ReadLine());
+            string dbs = Console.ReadLine();
+            int db;
+            if (!int.TryParse(dbs, out db))
+            {
+                Console.WriteLine("Hiba");
+                return;
+            }           
+            int[]t= new int[db];
+            int legnagyobb=0;
+            int legkisebb=0; 
+            
             for (int i = 0; i <t.Length; i++)
             {
-                t[i] = Convert.ToInt32(Console.ReadLine());
+                string ts;
+                do
+                {
+                     ts = Console.ReadLine();
+                } while (!int.TryParse(ts, out t[i]));
+                
+                 legnagyobb = t.Max();
+                 legkisebb = t.Min();
                 Console.WriteLine("Az {0}. szám {1}",i+1,t[i]);
-                if (legnagyobb<t[i])
+                if (legnagyobb<=t[i])
                 {
                     legnagyobb = t[i];
+                }
+                if (legkisebb>t[i])
+                {
+                    legkisebb = t[i];
                 }
 
             }
             Console.WriteLine("Legnagyobb:"+legnagyobb);
+            Console.WriteLine("Legkisebb:" + legkisebb);
             Console.ReadKey();
             
 
