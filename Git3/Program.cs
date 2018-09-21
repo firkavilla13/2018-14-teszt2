@@ -27,8 +27,9 @@ namespace Git3
             {
                 string ts;
                 do
-                {
+                {                    
                      ts = Console.ReadLine();
+                   
                 } while (!int.TryParse(ts, out t[i]));
                 
                  legnagyobb = t.Max();
